@@ -59,18 +59,29 @@ public class MainActivity extends AppCompatActivity {
             recyclerView10.setLayoutManager(new LinearLayoutManager(this, HORIZONTAL, false));
             recyclerView11.setLayoutManager(new LinearLayoutManager(this, HORIZONTAL, false));
 
-            ArrayList list = new ArrayList();
-            ArrayList list2 = new ArrayList();
-            ArrayList list3 = new ArrayList();
-            ArrayList list4 = new ArrayList();
-            ArrayList list5 = new ArrayList();
-            ArrayList list6 = new ArrayList();
-            ArrayList list7 = new ArrayList();
-            ArrayList list8 = new ArrayList();
-            ArrayList list9 = new ArrayList();
-            ArrayList list10 = new ArrayList();
-            ArrayList list11 = new ArrayList();
+            ArrayList<Elements> list = new ArrayList<Elements>();
+            ArrayList<Elements> list2 = new ArrayList<Elements>();
+            ArrayList<Elements> list3 = new ArrayList<Elements>();
+            ArrayList<Elements> list4 = new ArrayList<Elements>();
+            ArrayList<Elements> list5 = new ArrayList<Elements>();
+            ArrayList<Elements> list6 = new ArrayList<Elements>();
+            ArrayList<Elements> list7 = new ArrayList<Elements>();
+            ArrayList<Elements> list8 = new ArrayList<Elements>();
+            ArrayList<Elements> list9 = new ArrayList<Elements>();
+            ArrayList<Elements> list10 = new ArrayList<Elements>();
+            ArrayList<Elements> list11 = new ArrayList<Elements>();
 
+            Adapter adapter = new Adapter(list);
+            Adapter adapter2 = new Adapter(list);
+            Adapter adapter3 = new Adapter(list);
+            Adapter adapter4 = new Adapter(list);
+            Adapter adapter5 = new Adapter(list);
+            Adapter adapter6 = new Adapter(list);
+            Adapter adapter7 = new Adapter(list);
+            Adapter adapter8 = new Adapter(list);
+            Adapter adapter9 = new Adapter(list);
+            Adapter adapter10 = new Adapter(list);
+            Adapter adapter11 = new Adapter(list);
 
 
         } catch (Exception ex){

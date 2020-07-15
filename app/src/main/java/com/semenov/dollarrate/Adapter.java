@@ -1,33 +1,48 @@
 package com.semenov.dollarrate;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 public class Adapter extends RecyclerView.Adapter<Adapter.DataViewHolder>
 {
+
+    ArrayList<Elements> text;
+
+    public Adapter (ArrayList<Elements> text){
+        this.text = text;
+    }
+
+    public class DataViewHolder extends RecyclerView.ViewHolder {
+
+        TextView mTextView;
+
+        public DataViewHolder(@NonNull View itemView) {
+            super(itemView);
+            mTextView = (TextView) itemView.findViewById(R.id.item);
+        }
+    }
 
     @NonNull
     @Override
     public DataViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false);
+        return new DataViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull DataViewHolder holder, int position) {
-
+        holder.mTextView.setText(text.get(position).getNum()); // поменять
     }
 
     @Override
     public int getItemCount() {
-        return 0;
-    }
-
-    public class DataViewHolder extends RecyclerView.ViewHolder {
-        public DataViewHolder(@NonNull View itemView) {
-            super(itemView);
-        }
+        return text.size();
     }
 }
