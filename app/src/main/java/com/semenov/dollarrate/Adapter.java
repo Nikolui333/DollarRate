@@ -13,9 +13,9 @@ import java.util.ArrayList;
 public class Adapter extends RecyclerView.Adapter<Adapter.DataViewHolder>
 {
 
-    ArrayList<Elements> text;
+    ArrayList<newElements> text;
 
-    public Adapter (ArrayList<Elements> text){
+    public Adapter (ArrayList<newElements> text){
         this.text = text;
     }
 

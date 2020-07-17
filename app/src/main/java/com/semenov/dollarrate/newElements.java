@@ -1,9 +1,9 @@
 package com.semenov.dollarrate;
 
-public class Elements {
+public class newElements {
     private int num;
 
-    public Elements(int num){
+    public newElements(int num){
         this.num = num;
     }
 
