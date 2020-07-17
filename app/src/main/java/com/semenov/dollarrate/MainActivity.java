@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
             ArrayList<newElements> list10 = new ArrayList<newElements>();
             ArrayList<newElements> list11 = new ArrayList<newElements>();
 
-                doc = Jsoup.connect("https://minfin.com.ua/currency/").get();
+                doc = Jsoup.connect("https://yandex.ru/news/quotes/1.html").get();
                 Elements tables = doc.getElementsByTag("tbody");
                 Element our_table = tables.get(0);
                 Elements elements_from_table = our_table.children();
@@ -161,9 +161,21 @@ public class MainActivity extends AppCompatActivity {
                     ListItemClass items = new ListItemClass();
                     /*list.add(*/items.setData_1(our_table.children().get(i).child(0).text())/*)*/;
                     items.setData_2(our_table.children().get(i).child(1).text());
-                    items.setData_3(our_table.children().get(i).child(2).text().substring(0,7));
-                    items.setData_4(our_table.children().get(i).child(3).text());
+                    items.setData_3(our_table.children().get(i).child(2).text()/*.substring(0,7)*/);
+                    /*items.setData_4(our_table.children().get(i).child(3).text());*/
                     arrayList.add(items);
+
+                    if (i == 0) list.add((newElements) arrayList);
+                    else  if (i == 1) list2.add((newElements) arrayList);
+                    else  if (i == 2) list3.add((newElements) arrayList);
+                    else  if (i == 3) list4.add((newElements) arrayList);
+                    else  if (i == 4) list5.add((newElements) arrayList);
+                    else  if (i == 5) list6.add((newElements) arrayList);
+                    else  if (i == 6) list7.add((newElements) arrayList);
+                    else  if (i == 7) list8.add((newElements) arrayList);
+                    else  if (i == 8) list9.add((newElements) arrayList);
+                    else  if (i == 9) list10.add((newElements) arrayList);
+                    else  if (i == 10) list11.add((newElements) arrayList);
                 }
 /*                runOnUiThread(new Runnable() {
                     @Override
@@ -172,21 +184,33 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });*/
 
-            list.add(new newElements(45));
+/*            list.add(new newElements(45));
             list.add(new newElements(23));
-            list3.add(new newElements(89));
+            list3.add(new newElements(89));*/
 
-            Adapter adapter = new Adapter(list);
-            Adapter adapter2 = new Adapter(list);
-            Adapter adapter3 = new Adapter(list);
-            Adapter adapter4 = new Adapter(list);
-            Adapter adapter5 = new Adapter(list);
-            Adapter adapter6 = new Adapter(list);
-            Adapter adapter7 = new Adapter(list);
-            Adapter adapter8 = new Adapter(list);
-            Adapter adapter9 = new Adapter(list);
-            Adapter adapter10 = new Adapter(list);
-            Adapter adapter11 = new Adapter(list);
+            MyAdapter adapter = new MyAdapter(list);
+            MyAdapter adapter2 = new MyAdapter(list);
+            MyAdapter adapter3 = new MyAdapter(list);
+            MyAdapter adapter4 = new MyAdapter(list);
+            MyAdapter adapter5 = new MyAdapter(list);
+            MyAdapter adapter6 = new MyAdapter(list);
+            MyAdapter adapter7 = new MyAdapter(list);
+            MyAdapter adapter8 = new MyAdapter(list);
+            MyAdapter adapter9 = new MyAdapter(list);
+            MyAdapter adapter10 = new MyAdapter(list);
+            MyAdapter adapter11 = new MyAdapter(list);
+
+            recyclerView.setAdapter(adapter);
+            recyclerView2.setAdapter(adapter2);
+            recyclerView3.setAdapter(adapter3);
+            recyclerView4.setAdapter(adapter4);
+            recyclerView5.setAdapter(adapter5);
+            recyclerView6.setAdapter(adapter6);
+            recyclerView7.setAdapter(adapter7);
+            recyclerView8.setAdapter(adapter8);
+            recyclerView9.setAdapter(adapter9);
+            recyclerView10.setAdapter(adapter10);
+            recyclerView11.setAdapter(adapter11);
 
         } catch (Exception ex){
 

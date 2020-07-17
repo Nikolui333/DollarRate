@@ -10,12 +10,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.DataViewHolder>
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.DataViewHolder>
 {
 
     ArrayList<newElements> text;
 
-    public Adapter (ArrayList<newElements> text){
+    public MyAdapter (ArrayList<newElements> text){
         this.text = text;
     }
 
