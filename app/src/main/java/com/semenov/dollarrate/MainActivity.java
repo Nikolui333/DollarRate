@@ -11,7 +11,6 @@ import android.widget.ListView;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
     private Thread secThread; // второстепенный поток
     private Runnable runnable;
     private ListView listView;
-  //  private CustomArrayAdapter adapter;
     private List<ListItemClass> arrayList;
 
     @Override
@@ -50,10 +48,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void init()
     {
-/*        listView = findViewById(R.id.listView);
-        arrayList = new ArrayList<>();
-        adapter = new CustomArrayAdapter(this,R.layout.list_item_1,arrayList,getLayoutInflater());
-        listView.setAdapter(adapter);*/
         runnable = new Runnable() {
             @Override
             public void run() {
@@ -63,82 +57,18 @@ public class MainActivity extends AppCompatActivity {
         };
         secThread = new Thread(runnable);
         secThread.start();
-       /* ListItemClass items = new ListItemClass();
-        items.setData_1("Dollar");
-        items.setData_2("213");
-        items.setData_3("657");
-        items.setData_4("78");
-        arrayList.add(items);
-        items = new ListItemClass();
-        items.setData_1("Dollar");
-        items.setData_2("98");
-        items.setData_3("6");
-        items.setData_4("456");
-        arrayList.add(items);
-        adapter.notifyDataSetChanged();*/
-
     }
-/*    private void getWeb()
-    {
-        try {
-            doc = Jsoup.connect("https://minfin.com.ua/currency/").get();
-            Elements tables = doc.getElementsByTag("tbody");
-            Element our_table = tables.get(0);
-            Elements elements_from_table = our_table.children();
-            Element dollar = elements_from_table.get(0);
-            Elements dollar_elements = dollar.children();
-            Log.d("MyLog","Tbody size : " + our_table.children().get(0).text());
-            for(int i = 0;i < our_table.childrenSize();i++ )
-            {
-                ListItemClass items = new ListItemClass();
-                items.setData_1(our_table.children().get(i).child(0).text());
-                items.setData_2(our_table.children().get(i).child(1).text());
-                items.setData_3(our_table.children().get(i).child(2).text().substring(0,7));
-                items.setData_4(our_table.children().get(i).child(3).text());
-                arrayList.add(items);
-            }
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    adapter.notifyDataSetChanged();
-                }
-            });
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }*/
 
     // метод, в котором происходит заполнение recyclerView данными с сайта
     public void refresh(){
         try {
             recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-            recyclerView2 = (RecyclerView) findViewById(R.id.recycler_view2);
-            recyclerView3 = (RecyclerView) findViewById(R.id.recycler_view3);
-            recyclerView4 = (RecyclerView) findViewById(R.id.recycler_view4);
-            recyclerView5 = (RecyclerView) findViewById(R.id.recycler_view5);
-            recyclerView6 = (RecyclerView) findViewById(R.id.recycler_view6);
-            recyclerView7 = (RecyclerView) findViewById(R.id.recycler_view7);
-            recyclerView8 = (RecyclerView) findViewById(R.id.recycler_view8);
-            recyclerView9 = (RecyclerView) findViewById(R.id.recycler_view9);
-            recyclerView10 = (RecyclerView) findViewById(R.id.recycler_view10);
-            recyclerView11 = (RecyclerView) findViewById(R.id.recycler_view11);
 
             // горизонтальное размещение элементов recyclerView
-            recyclerView.setLayoutManager(new LinearLayoutManager(this, HORIZONTAL, false));
-            recyclerView2.setLayoutManager(new LinearLayoutManager(this, HORIZONTAL, false));
-            recyclerView3.setLayoutManager(new LinearLayoutManager(this, HORIZONTAL, false));
-            recyclerView4.setLayoutManager(new LinearLayoutManager(this, HORIZONTAL, false));
-            recyclerView5.setLayoutManager(new LinearLayoutManager(this, HORIZONTAL, false));
-            recyclerView6.setLayoutManager(new LinearLayoutManager(this, HORIZONTAL, false));
-            recyclerView7.setLayoutManager(new LinearLayoutManager(this, HORIZONTAL, false));
-            recyclerView8.setLayoutManager(new LinearLayoutManager(this, HORIZONTAL, false));
-            recyclerView9.setLayoutManager(new LinearLayoutManager(this, HORIZONTAL, false));
-            recyclerView10.setLayoutManager(new LinearLayoutManager(this, HORIZONTAL, false));
-            recyclerView11.setLayoutManager(new LinearLayoutManager(this, HORIZONTAL, false));
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
             ArrayList<newElements> list = new ArrayList<newElements>();
-            ArrayList<newElements> list2 = new ArrayList<newElements>();
+/*            ArrayList<newElements> list2 = new ArrayList<newElements>();
             ArrayList<newElements> list3 = new ArrayList<newElements>();
             ArrayList<newElements> list4 = new ArrayList<newElements>();
             ArrayList<newElements> list5 = new ArrayList<newElements>();
@@ -147,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
             ArrayList<newElements> list8 = new ArrayList<newElements>();
             ArrayList<newElements> list9 = new ArrayList<newElements>();
             ArrayList<newElements> list10 = new ArrayList<newElements>();
-            ArrayList<newElements> list11 = new ArrayList<newElements>();
+            ArrayList<newElements> list11 = new ArrayList<newElements>();*/
 
                 doc = Jsoup.connect("https://yandex.ru/news/quotes/1.html").get();
                 Elements tables = doc.getElementsByTag("tbody");
@@ -159,14 +89,13 @@ public class MainActivity extends AppCompatActivity {
                 for(int i = 0;i < our_table.childrenSize();i++ )
                 {
                     ListItemClass items = new ListItemClass();
-                    /*list.add(*/items.setData_1(our_table.children().get(i).child(0).text())/*)*/;
+                    items.setData_1(our_table.children().get(i).child(0).text());
                     items.setData_2(our_table.children().get(i).child(1).text());
-                    items.setData_3(our_table.children().get(i).child(2).text()/*.substring(0,7)*/);
-                    /*items.setData_4(our_table.children().get(i).child(3).text());*/
+                    items.setData_3(our_table.children().get(i).child(2).text());
                     arrayList.add(items);
 
-                    if (i == 0) list.add((newElements) arrayList);
-                    else  if (i == 1) list2.add((newElements) arrayList);
+                    list.add(new newElements("ere","rer","rew")); /*list.add((newElements) arrayList);*/ // приведение типов реализованно криво, но как сделать по другому, я не знаю
+/*                    else  if (i == 1) list2.add((newElements) arrayList);
                     else  if (i == 2) list3.add((newElements) arrayList);
                     else  if (i == 3) list4.add((newElements) arrayList);
                     else  if (i == 4) list5.add((newElements) arrayList);
@@ -175,33 +104,25 @@ public class MainActivity extends AppCompatActivity {
                     else  if (i == 7) list8.add((newElements) arrayList);
                     else  if (i == 8) list9.add((newElements) arrayList);
                     else  if (i == 9) list10.add((newElements) arrayList);
-                    else  if (i == 10) list11.add((newElements) arrayList);
-                }
-/*                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        adapter.notifyDataSetChanged();
-                    }
-                });*/
+                    else  if (i == 10) list11.add((newElements) arrayList);*/
 
-/*            list.add(new newElements(45));
-            list.add(new newElements(23));
-            list3.add(new newElements(89));*/
+                   // Log.d("OneLog", list.get(0));
+                }
 
             MyAdapter adapter = new MyAdapter(list);
-            MyAdapter adapter2 = new MyAdapter(list);
-            MyAdapter adapter3 = new MyAdapter(list);
-            MyAdapter adapter4 = new MyAdapter(list);
-            MyAdapter adapter5 = new MyAdapter(list);
-            MyAdapter adapter6 = new MyAdapter(list);
-            MyAdapter adapter7 = new MyAdapter(list);
-            MyAdapter adapter8 = new MyAdapter(list);
-            MyAdapter adapter9 = new MyAdapter(list);
-            MyAdapter adapter10 = new MyAdapter(list);
-            MyAdapter adapter11 = new MyAdapter(list);
+/*            MyAdapter adapter2 = new MyAdapter(list2);
+            MyAdapter adapter3 = new MyAdapter(list3);
+            MyAdapter adapter4 = new MyAdapter(list4);
+            MyAdapter adapter5 = new MyAdapter(list5);
+            MyAdapter adapter6 = new MyAdapter(list6);
+            MyAdapter adapter7 = new MyAdapter(list7);
+            MyAdapter adapter8 = new MyAdapter(list8);
+            MyAdapter adapter9 = new MyAdapter(list9);
+            MyAdapter adapter10 = new MyAdapter(list10);
+            MyAdapter adapter11 = new MyAdapter(list11);*/
 
             recyclerView.setAdapter(adapter);
-            recyclerView2.setAdapter(adapter2);
+/*            recyclerView2.setAdapter(adapter2);
             recyclerView3.setAdapter(adapter3);
             recyclerView4.setAdapter(adapter4);
             recyclerView5.setAdapter(adapter5);
@@ -210,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
             recyclerView8.setAdapter(adapter8);
             recyclerView9.setAdapter(adapter9);
             recyclerView10.setAdapter(adapter10);
-            recyclerView11.setAdapter(adapter11);
+            recyclerView11.setAdapter(adapter11);*/
 
         } catch (Exception ex){
 

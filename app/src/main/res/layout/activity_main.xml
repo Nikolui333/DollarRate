@@ -18,116 +18,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
-        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:layout_below="@id/text"
-        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
         >
     </androidx.recyclerview.widget.RecyclerView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view2"
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:layout_below="@id/recycler_view"
-        android:layout_marginLeft="15dp"
-        >
-    </androidx.recyclerview.widget.RecyclerView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view3"
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:layout_below="@id/recycler_view2"
-        android:layout_marginLeft="15dp"
-        >
-    </androidx.recyclerview.widget.RecyclerView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view4"
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:layout_below="@id/recycler_view3"
-        android:layout_marginLeft="15dp"
-        >
-    </androidx.recyclerview.widget.RecyclerView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view5"
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:layout_below="@id/recycler_view4"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="10dp"
-        >
-    </androidx.recyclerview.widget.RecyclerView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view6"
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:layout_below="@id/recycler_view5"
-        android:layout_marginLeft="15dp"
-        >
-    </androidx.recyclerview.widget.RecyclerView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view7"
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:layout_below="@id/recycler_view6"
-        android:layout_marginLeft="15dp"
-        >
-    </androidx.recyclerview.widget.RecyclerView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view8"
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:layout_below="@id/recycler_view7"
-        android:layout_marginLeft="15dp"
-        >
-    </androidx.recyclerview.widget.RecyclerView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view9"
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:layout_below="@id/recycler_view8"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="10dp"
-        >
-    </androidx.recyclerview.widget.RecyclerView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view10"
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:layout_below="@id/recycler_view9"
-        android:layout_marginLeft="15dp"
-        >
-    </androidx.recyclerview.widget.RecyclerView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view11"
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:layout_below="@id/recycler_view10"
-        android:layout_marginLeft="15dp"
-        >
-    </androidx.recyclerview.widget.RecyclerView>
-
 
 </RelativeLayout>

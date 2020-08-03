@@ -22,10 +22,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.DataViewHolder>
     public class DataViewHolder extends RecyclerView.ViewHolder {
 
         TextView mTextView;
+        TextView mTextView2;
+        TextView mTextView3;
 
         public DataViewHolder(@NonNull View itemView) {
             super(itemView);
             mTextView = (TextView) itemView.findViewById(R.id.item);
+            mTextView2 = (TextView) itemView.findViewById(R.id.item2);
+            mTextView3 = (TextView) itemView.findViewById(R.id.item3);
         }
     }
 
@@ -38,7 +42,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.DataViewHolder>
 
     @Override
     public void onBindViewHolder(@NonNull DataViewHolder holder, int position) {
-        holder.mTextView.setText(text.get(position).getNum()); // поменять
+        holder.mTextView.setText(text.get(position).getText_1());
+        holder.mTextView2.setText(text.get(position).getText_2());
+        holder.mTextView3.setText(text.get(position).getText_3());
     }
 
     @Override
