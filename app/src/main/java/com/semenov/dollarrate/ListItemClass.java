@@ -4,7 +4,6 @@ public class ListItemClass {
     String data_1;
     String data_2;
     String data_3;
-    String data_4;
 
     public String getData_1() {
         return data_1;
@@ -28,13 +27,5 @@ public class ListItemClass {
 
     public void setData_3(String data_3) {
         this.data_3 = data_3;
-    }
-
-    public String getData_4() {
-        return data_4;
-    }
-
-    public void setData_4(String data_4) {
-        this.data_4 = data_4;
     }
 }
