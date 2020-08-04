@@ -5,6 +5,15 @@ public class ListItemClass {
     String data_2;
     String data_3;
 
+    public ListItemClass(){
+    }
+
+    public ListItemClass(String data_1, String data_2, String data_3) {
+        this.data_1 = data_1;
+        this.data_2 = data_2;
+        this.data_3 = data_3;
+    }
+
     public String getData_1() {
         return data_1;
     }

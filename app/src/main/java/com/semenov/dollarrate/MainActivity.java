@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private Thread secThread; // второстепенный поток
     private Runnable runnable;
     private ListView listView;
-    private List<ListItemClass> arrayList;
+    private ArrayList<ListItemClass> arrayList = new ArrayList<ListItemClass>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +36,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void init()
     {
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        ArrayList<newElements> list = new ArrayList<newElements>();
-        list.add(new newElements("ddf", "dfd", "dde"));
-        MyAdapter adapter = new MyAdapter(list);
-        recyclerView.setAdapter(adapter);
-
         runnable = new Runnable() {
             @Override
             public void run() {
@@ -52,9 +45,15 @@ public class MainActivity extends AppCompatActivity {
         };
         secThread = new Thread(runnable);
         secThread.start();
+
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        // ArrayList<ListItemClass> list = new ArrayList<>();
+        //list.add(new ListItemClass(arrayList, arrayList, arrayList));
+        MyAdapter adapter = new MyAdapter(arrayList);
+        recyclerView.setAdapter(adapter);
     }
 
-    // метод, в котором происходит заполнение recyclerView данными с сайта
     public void refresh(){
         try {
                 doc = Jsoup.connect("https://yandex.ru/news/quotes/1.html").get();

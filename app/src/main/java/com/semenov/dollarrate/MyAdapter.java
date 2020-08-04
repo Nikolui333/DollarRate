@@ -13,9 +13,9 @@ import java.util.ArrayList;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.DataViewHolder>
 {
 
-    ArrayList<newElements> text;
+    ArrayList<ListItemClass> text;
 
-    public MyAdapter (ArrayList<newElements> text){
+    public MyAdapter (ArrayList<ListItemClass> text){
         this.text = text;
     }
 
@@ -42,9 +42,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.DataViewHolder>
 
     @Override
     public void onBindViewHolder(@NonNull DataViewHolder holder, int position) {
-        holder.mTextView.setText(text.get(position).getText_1());
-        holder.mTextView2.setText(text.get(position).getText_2());
-        holder.mTextView3.setText(text.get(position).getText_3());
+        holder.mTextView.setText(text.get(position).getData_1());
+        holder.mTextView2.setText(text.get(position).getData_2());
+        holder.mTextView3.setText(text.get(position).getData_3());
     }
 
     @Override
