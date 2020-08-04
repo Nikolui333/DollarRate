@@ -48,9 +48,8 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        // ArrayList<ListItemClass> list = new ArrayList<>();
-        //list.add(new ListItemClass(arrayList, arrayList, arrayList));
         MyAdapter adapter = new MyAdapter(arrayList);
+        adapter.update(arrayList);
         recyclerView.setAdapter(adapter);
     }
 
@@ -65,16 +64,21 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("MyLog","Tbody size : " + our_table.children().get(0).text());
                 for(int i = 0;i < our_table.childrenSize();i++ )
                 {
+/*                    arrayList.add(new ListItemClass(our_table.children().get(i).child(0).text(),
+                            our_table.children().get(i).child(1).text(),
+                            our_table.children().get(i).child(2).text()));*/
+
                     ListItemClass items = new ListItemClass();
                     items.setData_1(our_table.children().get(i).child(0).text());
                     items.setData_2(our_table.children().get(i).child(1).text());
                     items.setData_3(our_table.children().get(i).child(2).text());
                     arrayList.add(items);
                    // Log.d("OneLog", list.get(0));
+                    Log.d("OneLog", String.valueOf(arrayList.get(0)));
                 }
 
         } catch (Exception ex){
-
+            Log.d("OneLog", "Проблема");
         }
     }
 }

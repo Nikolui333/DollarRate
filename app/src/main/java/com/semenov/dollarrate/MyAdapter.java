@@ -9,11 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.DataViewHolder>
 {
 
-    ArrayList<ListItemClass> text;
+    ArrayList<ListItemClass> text = new ArrayList<>();
 
     public MyAdapter (ArrayList<ListItemClass> text){
         this.text = text;
@@ -50,5 +51,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.DataViewHolder>
     @Override
     public int getItemCount() {
         return text.size();
+    }
+
+    public void update(ArrayList<ListItemClass> text){
+        this.text.clear();
+        this.text.addAll(text);
+        notifyDataSetChanged();
     }
 }
