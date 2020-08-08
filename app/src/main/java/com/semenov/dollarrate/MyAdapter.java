@@ -9,14 +9,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.DataViewHolder>
 {
 
-    ArrayList<ListItemClass> text = new ArrayList<>();
+    ArrayList<ClassListItem> text = new ArrayList<>();
 
-    public MyAdapter (ArrayList<ListItemClass> text){
+    public MyAdapter (ArrayList<ClassListItem> text){
         this.text = text;
     }
 
@@ -43,9 +42,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.DataViewHolder>
 
     @Override
     public void onBindViewHolder(@NonNull DataViewHolder holder, int position) {
-        holder.mTextView.setText(text.get(position).getData_1());
-        holder.mTextView2.setText(text.get(position).getData_2());
-        holder.mTextView3.setText(text.get(position).getData_3());
+        holder.mTextView.setText(text.get(position).getText_1());
+        holder.mTextView2.setText(text.get(position).getText_2());
+        holder.mTextView3.setText(text.get(position).getText_3());
     }
 
     @Override
@@ -53,7 +52,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.DataViewHolder>
         return text.size();
     }
 
-    public void update(ArrayList<ListItemClass> text){
+    public void update(ArrayList<ClassListItem> text){
         this.text.clear();
         this.text.addAll(text);
         notifyDataSetChanged();

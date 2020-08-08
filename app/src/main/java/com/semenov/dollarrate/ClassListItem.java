@@ -1,11 +1,11 @@
 package com.semenov.dollarrate;
 
-public class newElements {
-    private String text_1;
-    private String text_2;
-    private String text_3;
+public class ClassListItem {
+    String text_1;
+    String text_2;
+    String text_3;
 
-    public newElements(String text_1, String text_2, String text_3) {
+    public ClassListItem(String text_1, String text_2, String text_3) {
         this.text_1 = text_1;
         this.text_2 = text_2;
         this.text_3 = text_3;

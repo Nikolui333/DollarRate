@@ -6,13 +6,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ListView;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -21,10 +19,10 @@ public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
 
-    private Document doc;
-    private Thread secThread; // второстепенный поток
+    private Document document;
+    private Thread secondThread; // второстепенный поток
     private Runnable runnable;
-    private ArrayList<ListItemClass> arrayList = new ArrayList<ListItemClass>();
+    private ArrayList<ClassListItem> arrayList = new ArrayList<ClassListItem>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,28 +56,27 @@ public class MainActivity extends AppCompatActivity {
 
                 });
             }
-};
-    secThread = new Thread(runnable);
-            secThread.start();
+        };
+        secondThread = new Thread(runnable);
+        secondThread.start();
     }
 
-    public void refresh(){
+    public void refresh() {
         try {
-                doc = Jsoup.connect("https://yandex.ru/news/quotes/1.html").get();
-                Elements data = doc.getElementsByTag("tbody");
-                Element piece_of_data = data.get(0);
-                Elements elements_piece_of_data = piece_of_data.children();
-                Element dollar = elements_piece_of_data.get(0);
-                Elements dollar_elements = dollar.children();
-                Log.d("MyLog","Tbody size : " + piece_of_data.children().get(0).text());
-                for(int i = 0;i < piece_of_data.childrenSize();i++ )
-                {
-                    arrayList.add(new ListItemClass(piece_of_data.children().get(i).child(0).text(),
-                            piece_of_data.children().get(i).child(1).text(),
-                            piece_of_data.children().get(i).child(2).text()));
-                }
+            document = Jsoup.connect("https://yandex.ru/news/quotes/1.html").get();
+            Elements data = document.getElementsByTag("tbody");
+            Element piece_of_data = data.get(0);
+            Elements elements_piece_of_data = piece_of_data.children();
+            Element dollar = elements_piece_of_data.get(0);
+            Elements dollar_elements = dollar.children();
+            Log.d("MyLog", "Tbody size : " + piece_of_data.children().get(0).text());
+            for (int i = 0; i < piece_of_data.childrenSize(); i++) {
+                arrayList.add(new ClassListItem(piece_of_data.children().get(i).child(0).text(),
+                        piece_of_data.children().get(i).child(1).text(),
+                        piece_of_data.children().get(i).child(2).text()));
+            }
 
-        } catch (Exception ex){
+        } catch (Exception ex) {
             Log.d("OneLog", "Проблема");
         }
     }
