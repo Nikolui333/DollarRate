@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -79,5 +80,9 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception ex) {
             Log.d("OneLog", "Проблема");
         }
+    }
+
+    public void go(View view){
+        launch();
     }
 }

@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">DollarRate</string>
+    <string name="app_name">Курс доллара</string>
+    <string name="button">Обновить</string>
+    <string name="text"> Курс доллара США к рублю</string>
 </resources>
