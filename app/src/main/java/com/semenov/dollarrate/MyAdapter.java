@@ -53,10 +53,4 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.DataViewHolder>
     public int getItemCount() {
         return text.size();
     }
-
-/*    public void update(ArrayList<ClassListItem> text){
-        this.text.clear();
-        this.text.addAll(text);
-        notifyDataSetChanged();
-    }*/
 }
