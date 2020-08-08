@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private Document document;
     private Thread secondThread; // второстепенный поток
     private Runnable runnable;
-    private ArrayList<ClassListItem> arrayList = new ArrayList<ClassListItem>();
+    private ArrayList<ClassListItem> arrayList = new ArrayList</*ClassListItem*/>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,14 +36,13 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         arrayList = new ArrayList<>();
-        final MyAdapter adapter = new MyAdapter(arrayList);
+        MyAdapter adapter = new MyAdapter(arrayList);
         recyclerView.setAdapter(adapter);
 
         // запускаем задачу загрузки
         runnable = new Runnable() {
             @Override
             public void run() {
-                // getWeb();
                 refresh();
                 // после загрузки уведомляем адаптер что данные изменились
                 // делать это можно только в UI-потоке - поэтому
@@ -74,7 +73,8 @@ public class MainActivity extends AppCompatActivity {
                 arrayList.add(new ClassListItem(piece_of_data.children().get(i).child(0).text(),
                         piece_of_data.children().get(i).child(1).text(),
                         piece_of_data.children().get(i).child(2).text()));
-            }
+                Log.d("OneLog", "Element : " + arrayList.get(i));
+        }
 
         } catch (Exception ex) {
             Log.d("OneLog", "Проблема");

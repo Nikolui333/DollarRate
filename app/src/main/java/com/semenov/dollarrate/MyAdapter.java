@@ -1,5 +1,6 @@
 package com.semenov.dollarrate;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +14,11 @@ import java.util.ArrayList;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.DataViewHolder>
 {
 
-    ArrayList<ClassListItem> text = new ArrayList<>();
+    ArrayList<ClassListItem> text/* = new ArrayList<>()*/;
 
     public MyAdapter (ArrayList<ClassListItem> text){
         this.text = text;
+        Log.d("Log", "text " + text.size());
     }
 
     public class DataViewHolder extends RecyclerView.ViewHolder {
@@ -52,9 +54,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.DataViewHolder>
         return text.size();
     }
 
-    public void update(ArrayList<ClassListItem> text){
+/*    public void update(ArrayList<ClassListItem> text){
         this.text.clear();
         this.text.addAll(text);
         notifyDataSetChanged();
-    }
+    }*/
 }

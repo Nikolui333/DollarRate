@@ -19,11 +19,20 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="wrap_content"
-        android:layout_height="100dp"
+        android:layout_height="match_parent"
         android:layout_below="@id/text"
         android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
         >
+
     </androidx.recyclerview.widget.RecyclerView>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        />
+
 
 </RelativeLayout>

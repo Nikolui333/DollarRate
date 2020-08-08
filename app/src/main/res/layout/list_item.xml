@@ -9,6 +9,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/item"
         android:layout_weight="1"
+        android:layout_margin="8dp"
+        android:textSize="14sp"
         />
 
     <TextView
@@ -16,6 +18,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/item2"
         android:layout_weight="1"
+        android:layout_margin="8dp"
+        android:textSize="14sp"
         />
 
     <TextView
@@ -23,6 +27,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/item3"
         android:layout_weight="1"
+        android:layout_margin="8dp"
+        android:textSize="14sp"
         />
 
 </LinearLayout>
